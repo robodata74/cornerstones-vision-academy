@@ -1,38 +1,56 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
+
   // ===== HERO SLIDER =====
   const slides = document.querySelectorAll(".slide");
-  const slider = document.querySelector(".hero-slider");
-  const totalSlides = slides.length;
+  const dotsContainer = document.createElement("div");
+  dotsContainer.className = "dots-container";
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.dataset.index = i;
+    dotsContainer.appendChild(dot);
+  });
+  document.querySelector(".hero-slider").appendChild(dotsContainer);
+
+  const dots = document.querySelectorAll(".dot");
   let currentIndex = 0;
-  let interval = null;
+  let sliderInterval = null;
 
   function showSlide(index) {
     slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
     currentIndex = index;
   }
 
   function nextSlide() {
-    showSlide((currentIndex + 1) % totalSlides);
+    showSlide((currentIndex + 1) % slides.length);
   }
 
   function startSlider() {
-    interval = setInterval(nextSlide, 6000);
+    sliderInterval = setInterval(nextSlide, 6000);
   }
 
   function pauseSlider() {
-    clearInterval(interval);
+    clearInterval(sliderInterval);
   }
 
-  // Pause slider on hover
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      showSlide(parseInt(dot.dataset.index));
+      pauseSlider();
+      startSlider();
+    });
+  });
+
+  const slider = document.querySelector(".hero-slider");
   slider.addEventListener("mouseenter", pauseSlider);
   slider.addEventListener("mouseleave", startSlider);
 
-  // Keyboard navigation
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", e => {
     if (e.key === "ArrowLeft") {
-      showSlide((currentIndex - 1 + totalSlides) % totalSlides);
+      showSlide((currentIndex - 1 + slides.length) % slides.length);
       pauseSlider();
       startSlider();
     } else if (e.key === "ArrowRight") {
@@ -42,23 +60,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Initialize
-  showSlide(currentIndex);
+  showSlide(0);
   startSlider();
 
-  // ===== STICKY NAVIGATION + SCROLL SPY =====
+  // ===== STICKY NAV & SCROLL SPY =====
   const navLinks = document.querySelectorAll(".main-navigation a");
   const sections = document.querySelectorAll("main .section");
 
   function onScroll() {
     const scrollPos = window.scrollY + window.innerHeight / 3;
-
-    sections.forEach((section) => {
+    sections.forEach(section => {
       if (
         scrollPos >= section.offsetTop &&
         scrollPos < section.offsetTop + section.offsetHeight
       ) {
-        navLinks.forEach((link) => {
+        navLinks.forEach(link => {
           link.classList.toggle(
             "active",
             link.getAttribute("href").slice(1) === section.id
@@ -70,12 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", onScroll);
 
-  // Smooth scroll
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
+  // Smooth scroll for nav links
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
       e.preventDefault();
       const target = document.getElementById(link.getAttribute("href").slice(1));
-      target.scrollIntoView({ behavior: "smooth" });
+      if (target) target.scrollIntoView({ behavior: "smooth" });
     });
   });
+
 });
