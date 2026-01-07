@@ -4,9 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   line-height: 1.6;
@@ -42,8 +40,6 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.logo img { max-height: 60px; }
-
 .main-navigation ul {
   display: flex;
   gap: 2rem;
@@ -53,8 +49,10 @@ body {
   text-decoration: none;
   color: #1f2a44;
   font-weight: 500;
+  transition: color 0.3s, border-bottom 0.3s;
 }
-.main-navigation a.active { border-bottom: 2px solid #c9a23f; }
+.main-navigation a:hover,
+.main-navigation a.active { border-bottom: 2px solid #c9a23f; color: #c9a23f; }
 
 /* ================= HERO SLIDER ================= */
 .hero-slider {
@@ -62,6 +60,7 @@ body {
   height: 85vh;
   overflow: hidden;
 }
+.slides { position: relative; height: 100%; }
 .slide {
   position: absolute;
   inset: 0;
@@ -85,31 +84,14 @@ body {
   border-radius: 6px;
 }
 
-/* Slider dots */
-.slider-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.6);
-  cursor: pointer;
-}
-.dot.active { background: #c9a23f; }
-
 /* ================= SECTIONS ================= */
 .section {
   max-width: 1000px;
   margin: auto;
   padding: 4rem 2rem;
 }
-.section h2 { margin-bottom: 1rem; }
+.section.alt { background: #ffffff; }
+.section h2 { margin-bottom: 1rem; color: #1f2a44; }
 
 /* ================= BUTTONS ================= */
 .cta-group { display: flex; gap: 1rem; margin-top: 1.5rem; }
@@ -119,9 +101,12 @@ body {
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
 .btn-primary { background: #1f2a44; color: #fff; }
+.btn-primary:hover { background: #c9a23f; }
 .btn-secondary { border: 2px solid #1f2a44; color: #1f2a44; }
+.btn-secondary:hover { background: #1f2a44; color: #fff; }
 
 /* ================= FORM ================= */
 .admissions-form-wrapper,
@@ -138,21 +123,30 @@ body {
 /* ================= GALLERY ================= */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
 }
 .gallery-item {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 6px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
-.gallery-item:hover { transform: scale(1.05); }
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
 
 /* ================= MAP ================= */
-.section iframe { border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+#location iframe {
+  width: 100%;
+  height: 450px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 
 /* ================= FOOTER ================= */
 .site-footer {
@@ -166,6 +160,6 @@ body {
 @media (max-width: 768px) {
   .main-navigation ul { flex-direction: column; gap: 1rem; }
   .hero-slider { height: 70vh; }
-  .slide-caption { left: 5%; right: 5%; }
+  .slide-caption { left: 5%; right: 5%; bottom: 10%; padding: 1rem; max-width: 90%; }
   .gallery-item { height: 150px; }
 }
