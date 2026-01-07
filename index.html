@@ -14,15 +14,12 @@
 
   <!-- Security -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <!-- ================= ACCESSIBILITY ================= -->
-  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- ================= HEADER ================= -->
   <header class="site-header">
@@ -37,12 +34,12 @@
       <!-- Navigation -->
       <nav class="main-navigation" aria-label="Main navigation">
         <ul>
-          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#academics">Academics</a></li>
           <li><a href="#admissions">Admissions</a></li>
           <li><a href="#campus-life">Campus Life</a></li>
-          <li><a href="#contact">Contact</a></li>
           <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -52,41 +49,36 @@
   <section class="hero-slider" aria-label="Hero slider showcasing CVA">
     <div class="slides">
       <div class="slide active">
-        <img src="images/slider/2.jpg" alt="CVA campus identity">
+        <img src="images/slider/campus_identity.png" alt="CVA campus identity">
         <div class="slide-caption">
           <h1>Welcome to Cornerstones Vision Academy</h1>
           <p>Nurturing future leaders with excellence in education and character.</p>
         </div>
       </div>
+
       <div class="slide">
-        <img src="images/slider/5.jpg" alt="Students in classroom learning">
+        <img src="images/slider/students_in_learning.png" alt="Students in classroom learning">
         <div class="slide-caption">
           <h1>Interactive Learning Environment</h1>
           <p>Hands-on learning and critical thinking in every classroom.</p>
         </div>
       </div>
+
       <div class="slide">
-        <img src="images/slider/6.jpg" alt="Students showing leadership">
+        <img src="images/slider/leadership_n_confidence.png" alt="Students showing leadership">
         <div class="slide-caption">
           <h1>Leadership & Confidence</h1>
           <p>Empowering students to be confident and responsible leaders.</p>
         </div>
       </div>
+
       <div class="slide">
-        <img src="images/slider/10.jpg" alt="Extracurricular activities">
+        <img src="images/slider/extracurricular_balance.png" alt="Extracurricular activities">
         <div class="slide-caption">
           <h1>Balanced Extracurricular Programs</h1>
           <p>Sports, arts, and community engagement for holistic development.</p>
         </div>
       </div>
-    </div>
-
-    <!-- Slider navigation dots -->
-    <div class="slider-dots">
-      <span class="dot active" aria-label="Slide 1"></span>
-      <span class="dot" aria-label="Slide 2"></span>
-      <span class="dot" aria-label="Slide 3"></span>
-      <span class="dot" aria-label="Slide 4"></span>
     </div>
   </section>
 
@@ -95,88 +87,115 @@
 
     <!-- About -->
     <section id="about" class="section">
-      <h2>About Cornerstones Vision Academy</h2>
-      <p>
-        Cornerstones Vision Academy is committed to academic excellence, character formation,
-        and holistic development. We prepare students to navigate complex challenges in a
-        rapidly changing world.
-      </p>
+      <div class="section-container">
+        <h2>About Cornerstones Vision Academy</h2>
+        <p>
+          Cornerstones Vision Academy is committed to academic excellence, character formation,
+          and holistic development. We prepare students to navigate complex challenges in a
+          rapidly changing world.
+        </p>
+      </div>
     </section>
 
     <!-- Academics -->
     <section id="academics" class="section">
-      <h2>Academics</h2>
-      <p>
-        Our curriculum spans STEM, Humanities, Arts, and Languages. Students develop critical thinking,
-        problem-solving, and leadership skills.
-      </p>
-      <ul>
-        <li>Primary & Secondary Education</li>
-        <li>STEM-focused curriculum</li>
-        <li>Arts, languages, and humanities</li>
-        <li>Modern labs and libraries</li>
-      </ul>
+      <div class="section-container">
+        <h2>Academics</h2>
+        <p>
+          Our curriculum spans STEM, Humanities, Arts, and Languages. Students develop critical thinking,
+          problem-solving, and leadership skills.
+        </p>
+        <ul>
+          <li>Primary & Secondary Education</li>
+          <li>STEM-focused curriculum</li>
+          <li>Arts, languages, and humanities</li>
+          <li>Modern labs and libraries</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Admissions -->
     <section id="admissions" class="section">
-      <h2>Admissions</h2>
-      <p>
-        Apply now to join a community committed to academic excellence and holistic development.
-        Admissions are open for the academic year 2026–2027.
-      </p>
-      <div class="admissions-form-wrapper">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLScNTRCZN02oupMKVKKMuCzDQ3dtgH0jbKQpyJ6C1Uh8Kmz_Fg/viewform?embedded=true" 
-          width="100%" height="1816" frameborder="0" marginheight="0" marginwidth="0"
-          aria-label="Cornerstones Vision Academy Admissions Form">
-          Loading…
-        </iframe>
+      <div class="section-container">
+        <h2>Admissions</h2>
+        <p>
+          Apply now to join a community committed to academic excellence and holistic development.
+          Admissions are open for the academic year 2026–2027.
+        </p>
+
+        <div class="admissions-form-wrapper">
+          <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLScNTRCZN02oupMKVKKMuCzDQ3dtgH0jbKQpyJ6C1Uh8Kmz_Fg/viewform?embedded=true" 
+            width="100%" 
+            height="1816" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+            aria-label="Cornerstones Vision Academy Admissions Form">
+            Loading…
+          </iframe>
+        </div>
       </div>
     </section>
 
     <!-- Campus Life -->
     <section id="campus-life" class="section">
-      <h2>Campus Life</h2>
-      <p>
-        CVA students enjoy a vibrant campus life balancing academics with sports, arts, leadership,
-        clubs, and community service programs.
-      </p>
-      <ul>
-        <li>Leadership & student governance</li>
-        <li>Sports: football, basketball, athletics</li>
-        <li>Arts & music programs</li>
-        <li>Community service projects</li>
-      </ul>
+      <div class="section-container">
+        <h2>Campus Life</h2>
+        <p>
+          CVA students enjoy a vibrant campus life balancing academics with sports, arts, leadership,
+          clubs, and community service programs.
+        </p>
+        <ul>
+          <li>Leadership & student governance</li>
+          <li>Sports: football, basketball, athletics</li>
+          <li>Arts & music programs</li>
+          <li>Community service projects</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Gallery -->
     <section id="gallery" class="section">
-      <h2>Gallery</h2>
-      <div class="gallery-grid"></div>
+      <div class="section-container">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <!-- images dynamically loaded via js/gallery.js -->
+        </div>
+      </div>
     </section>
 
     <!-- Location Map -->
     <section id="location" class="section">
-      <h2>Where We Are</h2>
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345!2d27.398!3d8.766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCornerstones%20Vision%20Academy!5e0!3m2!1sen!2ssu!4v1673061234567" 
-        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade" aria-label="Cornerstones Vision Academy Location Map">
-      </iframe>
+      <div class="section-container">
+        <h2>Where We Are</h2>
+        <p>Visit us at our campus in Aweil:</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.123456789012!2d27.39487654321!3d8.76891234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabcdef1234567890!2s40%20Maper%20Road%2C%20Maper%20East%2C%20Aweil%2C%20South%20Sudan!5e0!3m2!1sen!2sus!4v1700000000000"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Cornerstones Vision Academy Location Map">
+        </iframe>
+      </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="section">
-      <h2>Contact Us</h2>
-      <p>Reach out for inquiries or campus visits.</p>
-      <address>
-        Hai Market, Aweil Town<br>
-        Northern Bahr el Ghazal State<br>
-        South Sudan<br>
-        <a href="mailto:info@cva.edu.ss">info@cva.edu.ss</a><br>
-        <a href="tel:+211912345678">+211 912 345 678</a>
-      </address>
+      <div class="section-container">
+        <h2>Contact Us</h2>
+        <p>Reach out for inquiries or campus visits.</p>
+        <address>
+          40 Maper Road, Maper East, Aweil Town<br>
+          Northern Bahr el Ghazal State<br>
+          South Sudan<br>
+          <a href="mailto:info@cva.edu.ss">info@cva.edu.ss</a><br>
+          <a href="tel:+211912345678">+211 912 345 678</a>
+        </address>
+      </div>
     </section>
 
   </main>
@@ -184,8 +203,19 @@
   <!-- ================= FOOTER ================= -->
   <footer class="site-footer">
     <div class="footer-container">
-      <strong>Cornerstones Vision Academy</strong>
-      <p>&copy; 2026 Cornerstones Vision Academy. All rights reserved.</p>
+      <div class="footer-brand">
+        <strong>Cornerstones Vision Academy</strong>
+      </div>
+      <div class="footer-address">
+        <address>
+          40 Maper Road, Maper East, Aweil Town<br>
+          Northern Bahr el Ghazal State<br>
+          South Sudan
+        </address>
+      </div>
+      <div class="footer-copy">
+        <small>&copy; 2026 Cornerstones Vision Academy. All rights reserved.</small>
+      </div>
     </div>
   </footer>
 
