@@ -37,13 +37,14 @@
           <li><a href="#about">About</a></li>
           <li><a href="#academics">Academics</a></li>
           <li><a href="#admissions">Admissions</a></li>
-          <li><a href="#campus-life">Campus Life</a></li>
           <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#campus-life">Campus Life</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  <!-- Commit: feat: add header with logo and main navigation -->
 
   <!-- ================= HERO SLIDER ================= -->
   <section class="hero-slider" aria-label="Hero slider showcasing CVA">
@@ -55,7 +56,6 @@
           <p>Nurturing future leaders with excellence in education and character.</p>
         </div>
       </div>
-
       <div class="slide">
         <img src="images/slider/students_in_learning.png" alt="Students in classroom learning">
         <div class="slide-caption">
@@ -63,7 +63,6 @@
           <p>Hands-on learning and critical thinking in every classroom.</p>
         </div>
       </div>
-
       <div class="slide">
         <img src="images/slider/leadership_n_confidence.png" alt="Students showing leadership">
         <div class="slide-caption">
@@ -71,7 +70,6 @@
           <p>Empowering students to be confident and responsible leaders.</p>
         </div>
       </div>
-
       <div class="slide">
         <img src="images/slider/extracurricular_balance.png" alt="Extracurricular activities">
         <div class="slide-caption">
@@ -81,6 +79,7 @@
       </div>
     </div>
   </section>
+  <!-- Commit: feat: add hero slider with captions -->
 
   <!-- ================= MAIN ================= -->
   <main id="main-content">
@@ -96,6 +95,7 @@
         </p>
       </div>
     </section>
+    <!-- Commit: feat: add About section -->
 
     <!-- Academics -->
     <section id="academics" class="section">
@@ -113,6 +113,7 @@
         </ul>
       </div>
     </section>
+    <!-- Commit: feat: add Academics section -->
 
     <!-- Admissions -->
     <section id="admissions" class="section">
@@ -137,6 +138,16 @@
         </div>
       </div>
     </section>
+    <!-- Commit: feat: embed Google Form for Admissions -->
+
+    <!-- Gallery -->
+    <section id="gallery" class="section">
+      <div class="section-container">
+        <h2>Gallery</h2>
+        <div class="gallery-grid"></div>
+      </div>
+    </section>
+    <!-- Commit: feat: add Gallery section container -->
 
     <!-- Campus Life -->
     <section id="campus-life" class="section">
@@ -154,49 +165,38 @@
         </ul>
       </div>
     </section>
-
-    <!-- Gallery -->
-    <section id="gallery" class="section">
-      <div class="section-container">
-        <h2>Gallery</h2>
-        <div class="gallery-grid">
-          <!-- images dynamically loaded via js/gallery.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Location Map -->
-    <section id="location" class="section">
-      <div class="section-container">
-        <h2>Where We Are</h2>
-        <p>Visit us at our campus in Aweil:</p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.123456789012!2d27.39487654321!3d8.76891234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabcdef1234567890!2s40%20Maper%20Road%2C%20Maper%20East%2C%20Aweil%2C%20South%20Sudan!5e0!3m2!1sen!2sus!4v1700000000000"
-          width="100%"
-          height="450"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          aria-label="Cornerstones Vision Academy Location Map">
-        </iframe>
-      </div>
-    </section>
+    <!-- Commit: feat: add Campus Life section -->
 
     <!-- Contact -->
     <section id="contact" class="section">
       <div class="section-container">
         <h2>Contact Us</h2>
         <p>Reach out for inquiries or campus visits.</p>
+
         <address>
-          40 Maper Road, Maper East, Aweil Town<br>
+          Hai Market, Aweil Town<br>
           Northern Bahr el Ghazal State<br>
           South Sudan<br>
           <a href="mailto:info@cva.edu.ss">info@cva.edu.ss</a><br>
           <a href="tel:+211912345678">+211 912 345 678</a>
         </address>
+
+        <div class="map-wrapper">
+          <h3>Where We Are</h3>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.1234567890!2d27.4001234!3d8.7667890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x123456789abcdef!2sCornerstones%20Vision%20Academy%2C%2040%20Maper%20Road%2C%20Maper%20East%2C%20Aweil%2C%20South%20Sudan!5e0!3m2!1sen!2sus!4v1699999999999"
+            width="100%"
+            height="450"
+            style="border:0; border-radius:6px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Google map showing Cornerstones Vision Academy location at 40 Maper Road, Maper East, Aweil, South Sudan">
+          </iframe>
+        </div>
       </div>
     </section>
+    <!-- Commit: feat: add Contact section with map -->
 
   </main>
 
@@ -208,7 +208,7 @@
       </div>
       <div class="footer-address">
         <address>
-          40 Maper Road, Maper East, Aweil Town<br>
+          Hai Market, Aweil Town<br>
           Northern Bahr el Ghazal State<br>
           South Sudan
         </address>
@@ -218,9 +218,11 @@
       </div>
     </div>
   </footer>
+  <!-- Commit: feat: add footer -->
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/gallery.js"></script>
 </body>
 </html>
+<!-- Commit: chore: link main.js and gallery.js -->
