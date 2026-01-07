@@ -2,78 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Contact | Cornerstones Vision Academy</title>
-  <meta name="description" content="Get in touch with Cornerstones Vision Academy for inquiries, visits, or admissions.">
-  <meta name="keywords" content="CVA, Contact, South Sudan, School inquiries">
-  <meta name="author" content="Cornerstones Vision Academy">
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- Header -->
   <header class="site-header">
     <div class="header-container">
       <div class="logo">
-        <a href="index.html" aria-label="CVA Home">
-          <img src="images/cva-logo.png" alt="Cornerstones Vision Academy Logo" class="logo-img">
-        </a>
+        <a href="index.html"><img src="images/cva-logo.png" alt="CVA Logo"></a>
       </div>
-      <nav class="main-navigation" aria-label="Main navigation">
+      <nav class="main-navigation">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="early_years.html">Early Years</a></li>
-          <li><a href="secondary.html">Secondary</a></li>
-          <li><a href="sports.html">Sports</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="admin.html">Admin</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="early_years.html" class="nav-link">Early Years</a></li>
+          <li><a href="secondary.html" class="nav-link">Secondary</a></li>
+          <li><a href="sports.html" class="nav-link">Sports</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="admin.html" class="nav-link">Admin</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero-section">
-    <div class="hero-caption">
-      <h1>Contact Us</h1>
-      <p>We are here to answer your questions and welcome campus visits.</p>
-    </div>
+  <!-- Hero Image -->
+  <section class="hero-image">
+    <img src="images/headers/about_us.png" alt="Contact CVA">
   </section>
 
-  <!-- MAIN -->
+  <!-- Contact Content -->
   <main>
     <section class="section">
-      <div class="section-container contact-grid">
+      <h2>Contact Us</h2>
+      <p>Reach out for inquiries, campus visits, or admissions information.</p>
 
-        <!-- CONTACT INFO -->
+      <div class="contact-container">
+
+        <!-- Address -->
         <div class="contact-info">
-          <h2>Our Location</h2>
-          <p>40 Maper Road, Maper East<br>Aweil Town, Northern Bahr el Ghazal State<br>South Sudan</p>
+          <h3>Our Location</h3>
+          <p>40 Maper Road, Maper East, Aweil, South Sudan</p>
           <p>Email: <a href="mailto:cornerstonesvisionacademy@outlook.com">cornerstonesvisionacademy@outlook.com</a></p>
           <p>Phone: <a href="tel:+211912345678">+211 912 345 678</a></p>
-
-          <!-- MAP -->
+          
+          <!-- Google Maps Embed -->
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12518.957869721454!2d27.4058!3d8.7768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17e173ed0b6c9f91%3A0x5e212b0eb80f86c3!2s40%20Maper%20Rd%2C%20Aweil%2C%20South%20Sudan!5e0!3m2!1sen!2sus!4v1673092800000!5m2!1sen!2sus"
-            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="CVA Location Map"></iframe>
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4127.123456!2d27.398765!3d8.766432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabcdef1234567890!2s40%20Maper%20Road%2C%20Maper%20East%2C%20Aweil%2C%20South%20Sudan!5e0!3m2!1sen!2sus!4v1671234567890"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-        <!-- CONTACT FORM -->
-        <div class="contact-form">
-          <h2>Send Us a Message</h2>
-          <form action="https://formsubmit.co/cornerstonesvisionacademy@outlook.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Your Phone">
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="_replyto" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit" class="btn-primary">Send Message</button>
           </form>
         </div>
 
@@ -81,23 +78,10 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-brand"><strong>Cornerstones Vision Academy</strong></div>
-      <div class="footer-address">
-        <address>
-          40 Maper Road, Maper East<br>
-          Aweil Town, Northern Bahr el Ghazal State<br>
-          South Sudan<br>
-          <a href="mailto:cornerstonesvisionacademy@outlook.com">cornerstonesvisionacademy@outlook.com</a><br>
-          <a href="tel:+211912345678">+211 912 345 678</a>
-        </address>
-      </div>
-      <div class="footer-copy">&copy; 2026 Cornerstones Vision Academy. All rights reserved.</div>
-    </div>
+    <p>&copy; 2026 Cornerstones Vision Academy. All rights reserved.</p>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>

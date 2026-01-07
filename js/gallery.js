@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   galleryImages.forEach(imgFile => {
     const img = document.createElement("img");
     img.src = `${imageFolder}${imgFile}`;
-    img.alt = "CVA Gallery Image";
+    img.alt = "Cornerstones Vision Academy gallery image";
     img.classList.add("gallery-item");
     galleryContainer.appendChild(img);
   });

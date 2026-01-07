@@ -1,34 +1,12 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Slider
   const slides = document.querySelectorAll(".slide");
-  const dots = [];
   let currentIndex = 0;
-  let interval;
-
-  // Create dots dynamically if needed
-  const slider = document.querySelector(".hero-slider");
-  const dotsContainer = document.createElement("div");
-  dotsContainer.classList.add("dots-container");
-  slider.appendChild(dotsContainer);
-
-  slides.forEach((slide, i) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if (i === 0) dot.classList.add("active");
-    dotsContainer.appendChild(dot);
-    dots.push(dot);
-
-    dot.addEventListener("click", () => {
-      showSlide(i);
-      pauseSlider();
-      startSlider();
-    });
-  });
 
   function showSlide(index) {
     slides.forEach((s, i) => s.classList.toggle("active", i === index));
-    dots.forEach((d, i) => d.classList.toggle("active", i === index));
     currentIndex = index;
   }
 
@@ -36,17 +14,33 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide((currentIndex + 1) % slides.length);
   }
 
-  function startSlider() { interval = setInterval(nextSlide, 1500); }
-  function pauseSlider() { clearInterval(interval); }
+  let sliderInterval = setInterval(nextSlide, 1500); // 1.5s
 
-  slider.addEventListener("mouseenter", pauseSlider);
-  slider.addEventListener("mouseleave", startSlider);
+  // Pause on hover
+  const slider = document.querySelector(".hero-slider");
+  if (slider) {
+    slider.addEventListener("mouseenter", () => clearInterval(sliderInterval));
+    slider.addEventListener("mouseleave", () => sliderInterval = setInterval(nextSlide, 1500));
+  }
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") { showSlide((currentIndex - 1 + slides.length) % slides.length); pauseSlider(); startSlider(); }
-    if (e.key === "ArrowRight") { nextSlide(); pauseSlider(); startSlider(); }
+  // Keyboard arrows
+  document.addEventListener("keydown", e => {
+    if (!slides.length) return;
+    if (e.key === "ArrowLeft") {
+      showSlide((currentIndex - 1 + slides.length) % slides.length);
+    } else if (e.key === "ArrowRight") {
+      nextSlide();
+    }
   });
 
-  showSlide(0);
-  startSlider();
+  if (slides.length) showSlide(0);
+
+  // Mobile menu toggle (if you add a hamburger)
+  const navLinks = document.querySelectorAll(".main-navigation a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
 });
