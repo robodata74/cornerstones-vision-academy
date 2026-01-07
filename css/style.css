@@ -1,286 +1,139 @@
-/* ====================================
-   Cornerstones Vision Academy - Full Site (CVA Colors)
-==================================== */
+:root {
+  --dark-brown: #3b2f2f;
+  --beige: #f5f0e6;
+  --navy: #001f4d;
+  --white: #ffffff;
+}
 
-/* ====== RESET ====== */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--dark-brown);
   line-height: 1.6;
-  color: #3b2f2f; /* Dark brown from uniform */
-  background-color: #fff;
 }
 
-/* ====== IMAGES ====== */
-img {
-  max-width: 100%;
-  display: block;
-  height: auto;
-}
-
-/* ====== HEADER ====== */
 .site-header {
-  background-color: #fff;
-  border-bottom: 1px solid #e5e5e5;
   position: sticky;
   top: 0;
+  background: var(--white);
+  border-bottom: 1px solid #ddd;
   z-index: 1000;
 }
 
 .header-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
+  margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
 }
 
 .logo img {
-  max-height: 60px;
-  width: auto;
+  height: 55px;
 }
 
-.main-navigation ul {
+.main-nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
-.main-navigation a {
+.main-nav a {
   text-decoration: none;
-  color: #3b2f2f; /* Dark brown */
-  font-weight: 500;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  color: var(--dark-brown);
+  font-weight: 600;
 }
 
-.main-navigation a:hover,
-.main-navigation a:focus {
-  color: #fff;
-  background-color: #001f4d; /* Navy blue hover */
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+.main-nav a:hover {
+  color: var(--navy);
 }
 
-/* Sticky nav highlight */
-.main-navigation a.active {
-  color: #001f4d;
-  font-weight: bold;
-}
-
-/* ====== HERO SLIDER ====== */
 .hero-slider {
   position: relative;
+  height: 70vh;
   overflow: hidden;
-  width: 100%;
-  height: 60vh;
-}
-
-.slides {
-  position: relative;
-  width: 100%;
-  height: 100%;
 }
 
 .slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease;
 }
 
 .slide.active {
   opacity: 1;
-  z-index: 1;
 }
 
 .slide img {
   width: 100%;
-  height: 60vh;
+  height: 100%;
   object-fit: cover;
 }
 
-.slide-caption {
+.caption {
   position: absolute;
-  bottom: 15%;
-  left: 5%;
+  bottom: 20%;
+  left: 10%;
+  background: rgba(0,0,0,0.5);
   color: #fff;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 1rem 1.5rem;
-  border-radius: 6px;
+  padding: 1.5rem;
   max-width: 500px;
 }
 
-.slide-caption h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #f5f0e6; /* Beige */
-}
-
-.slide-caption p {
-  font-size: 1rem;
-  color: #fff;
-}
-
-/* Slider dots */
-.slider-dots {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.75rem;
-}
-
-.slider-dots .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  background-color: rgba(255,255,255,0.5);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.slider-dots .dot.active {
-  background-color: rgba(255,255,255,0.9);
-}
-
-/* ====== MAIN SECTIONS ====== */
 .section {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+  padding: 4rem 1rem;
+}
+
+.section.alt {
+  background: var(--beige);
 }
 
 .section h2 {
-  font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #001f4d; /* Dark navy headings */
+  color: var(--navy);
 }
 
-.section p,
-.section ul {
-  margin-bottom: 1rem;
-  color: #3b2f2f;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1.5rem;
 }
 
-.section ul {
-  margin-left: 1.5rem;
-  list-style: disc;
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 4px;
 }
 
-.section a {
-  color: #8a6d3b;
-  text-decoration: none;
+.steps {
+  margin: 1.5rem 0;
 }
 
-.section a:hover,
-.section a:focus {
-  text-decoration: underline;
-}
-
-.section:nth-child(even) {
-  background-color: #f5f0e6; /* Beige */
-}
-
-.section:nth-child(odd) {
-  background-color: #fff;
-}
-
-/* Buttons / CTA */
 .btn-primary {
-  background-color: #001f4d;
+  display: inline-block;
+  background: var(--navy);
   color: #fff;
   padding: 0.75rem 1.5rem;
-  border: none;
+  text-decoration: none;
   border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: #f5f0e6;
-  color: #001f4d;
+  background: var(--dark-brown);
 }
 
-/* ====== FOOTER ====== */
 .site-footer {
-  background-color: #3b2f2f;
+  background: var(--dark-brown);
   color: #fff;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
   text-align: center;
-}
-
-.footer-address {
-  margin: 1rem 0;
-  font-style: normal;
-  font-size: 0.9rem;
-}
-
-.footer-copy {
-  font-size: 0.85rem;
-  color: #aaa;
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .main-navigation ul {
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .slide-caption h1 {
-    font-size: 1.5rem;
-  }
-
-  .slide-caption p {
-    font-size: 0.9rem;
-  }
-
-  .hero-slider {
-    height: 50vh;
-  }
-
-  .slide img {
-    height: 50vh;
-  }
-}
-
-@media (max-width: 480px) {
-  .slide-caption {
-    bottom: 10%;
-    left: 5%;
-    max-width: 90%;
-  }
-
-  .slide-caption h1 {
-    font-size: 1.3rem;
-  }
-
-  .slide-caption p {
-    font-size: 0.85rem;
-  }
+  padding: 1.5rem;
 }
