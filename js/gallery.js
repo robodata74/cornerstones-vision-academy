@@ -1,23 +1,23 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const galleryGrid = document.getElementById("gallery-grid");
+  const galleryContainer = document.querySelector(".gallery-grid");
+  const imageFolder = "images/gallery/";
   
-  // Automatically fetch all images in the gallery folder
-  // NOTE: GitHub Pages does not allow reading folder contents dynamically.
-  // You must list the images manually or via array:
-  const images = [
-    "images/gallery/photo1.png",
-    "images/gallery/photo2.jpg",
-    "images/gallery/photo3.png"
-    // Add more as you upload
+  // List of images (you can add more files here)
+  const galleryImages = [
+    "photo1.png",
+    "photo2.png",
+    "photo3.png",
+    "photo4.png",
+    "photo5.png",
   ];
 
-  images.forEach(src => {
-    const imgEl = document.createElement("img");
-    imgEl.src = src;
-    imgEl.alt = "CVA Gallery Image";
-    imgEl.classList.add("gallery-item");
-    galleryGrid.appendChild(imgEl);
+  // Dynamically add images
+  galleryImages.forEach((imgFile) => {
+    const img = document.createElement("img");
+    img.src = `${imageFolder}${imgFile}`;
+    img.alt = "Cornerstones Vision Academy gallery image";
+    galleryContainer.appendChild(img);
   });
 });
