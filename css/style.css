@@ -69,6 +69,12 @@ img {
   border-radius: 4px;
 }
 
+/* Sticky nav highlight */
+.main-navigation a.active {
+  color: #001f4d;
+  font-weight: bold;
+}
+
 /* ====== HERO SLIDER ====== */
 .hero-slider {
   position: relative;
@@ -109,7 +115,7 @@ img {
   bottom: 15%;
   left: 5%;
   color: #fff;
-  background: rgba(0, 0, 0, 0.45); /* Slightly darker overlay for readability */
+  background: rgba(0, 0, 0, 0.45);
   padding: 1rem 1.5rem;
   border-radius: 6px;
   max-width: 500px;
@@ -118,7 +124,7 @@ img {
 .slide-caption h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #f5f0e6; /* Beige heading for contrast */
+  color: #f5f0e6; /* Beige */
 }
 
 .slide-caption p {
@@ -166,7 +172,7 @@ img {
 .section p,
 .section ul {
   margin-bottom: 1rem;
-  color: #3b2f2f; /* Dark brown text */
+  color: #3b2f2f;
 }
 
 .section ul {
@@ -175,7 +181,7 @@ img {
 }
 
 .section a {
-  color: #8a6d3b; /* Muted gold accent for links */
+  color: #8a6d3b;
   text-decoration: none;
 }
 
@@ -184,17 +190,17 @@ img {
   text-decoration: underline;
 }
 
-/* Alternate section backgrounds for readability */
 .section:nth-child(even) {
   background-color: #f5f0e6; /* Beige */
 }
+
 .section:nth-child(odd) {
   background-color: #fff;
 }
 
 /* Buttons / CTA */
 .btn-primary {
-  background-color: #001f4d; /* Dark navy */
+  background-color: #001f4d;
   color: #fff;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -205,13 +211,13 @@ img {
 }
 
 .btn-primary:hover {
-  background-color: #f5f0e6; /* Beige hover */
+  background-color: #f5f0e6;
   color: #001f4d;
 }
 
 /* ====== FOOTER ====== */
 .site-footer {
-  background-color: #3b2f2f; /* Dark brown */
+  background-color: #3b2f2f;
   color: #fff;
 }
 
