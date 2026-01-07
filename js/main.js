@@ -1,26 +1,34 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  // ===== HERO SLIDER =====
   const slides = document.querySelectorAll(".slide");
-  const dotsContainer = document.createElement("div");
-  dotsContainer.className = "dots-container";
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.className = "dot";
-    dot.dataset.index = i;
-    dotsContainer.appendChild(dot);
-  });
-  document.querySelector(".hero-slider").appendChild(dotsContainer);
-
-  const dots = document.querySelectorAll(".dot");
+  const dots = [];
   let currentIndex = 0;
-  let sliderInterval = null;
+  let interval;
+
+  // Create dots dynamically if needed
+  const slider = document.querySelector(".hero-slider");
+  const dotsContainer = document.createElement("div");
+  dotsContainer.classList.add("dots-container");
+  slider.appendChild(dotsContainer);
+
+  slides.forEach((slide, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+
+    dot.addEventListener("click", () => {
+      showSlide(i);
+      pauseSlider();
+      startSlider();
+    });
+  });
 
   function showSlide(index) {
-    slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+    slides.forEach((s, i) => s.classList.toggle("active", i === index));
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
     currentIndex = index;
   }
 
@@ -28,71 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide((currentIndex + 1) % slides.length);
   }
 
-  function startSlider() {
-    sliderInterval = setInterval(nextSlide, 6000);
-  }
+  function startSlider() { interval = setInterval(nextSlide, 1500); }
+  function pauseSlider() { clearInterval(interval); }
 
-  function pauseSlider() {
-    clearInterval(sliderInterval);
-  }
-
-  dots.forEach(dot => {
-    dot.addEventListener("click", () => {
-      showSlide(parseInt(dot.dataset.index));
-      pauseSlider();
-      startSlider();
-    });
-  });
-
-  const slider = document.querySelector(".hero-slider");
   slider.addEventListener("mouseenter", pauseSlider);
   slider.addEventListener("mouseleave", startSlider);
 
-  document.addEventListener("keydown", e => {
-    if (e.key === "ArrowLeft") {
-      showSlide((currentIndex - 1 + slides.length) % slides.length);
-      pauseSlider();
-      startSlider();
-    } else if (e.key === "ArrowRight") {
-      nextSlide();
-      pauseSlider();
-      startSlider();
-    }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") { showSlide((currentIndex - 1 + slides.length) % slides.length); pauseSlider(); startSlider(); }
+    if (e.key === "ArrowRight") { nextSlide(); pauseSlider(); startSlider(); }
   });
 
   showSlide(0);
   startSlider();
-
-  // ===== STICKY NAV & SCROLL SPY =====
-  const navLinks = document.querySelectorAll(".main-navigation a");
-  const sections = document.querySelectorAll("main .section");
-
-  function onScroll() {
-    const scrollPos = window.scrollY + window.innerHeight / 3;
-    sections.forEach(section => {
-      if (
-        scrollPos >= section.offsetTop &&
-        scrollPos < section.offsetTop + section.offsetHeight
-      ) {
-        navLinks.forEach(link => {
-          link.classList.toggle(
-            "active",
-            link.getAttribute("href").slice(1) === section.id
-          );
-        });
-      }
-    });
-  }
-
-  window.addEventListener("scroll", onScroll);
-
-  // Smooth scroll for nav links
-  navLinks.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const target = document.getElementById(link.getAttribute("href").slice(1));
-      if (target) target.scrollIntoView({ behavior: "smooth" });
-    });
-  });
-
 });
