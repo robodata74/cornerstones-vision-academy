@@ -1,12 +1,11 @@
 /*
   Cornerstones Vision Academy
   Main JavaScript File
-  Purpose: Site interactivity (slider, navigation, forms)
 */
 
 "use strict";
 
-// DOM Ready Check
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("CVA website initialized successfully.");
+document.addEventListener("DOMContentLoaded", () => {
+  // Placeholder for future slider & interactions
+  console.log("Cornerstones Vision Academy website loaded.");
 });
