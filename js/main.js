@@ -1,46 +1,64 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Slider
+  // ======== HERO SLIDER ========
   const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
   let currentIndex = 0;
+  const slideDuration = 2500; // 2.5 seconds
 
   function showSlide(index) {
-    slides.forEach((s, i) => s.classList.toggle("active", i === index));
-    currentIndex = index;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+      dots[i].classList.toggle("active", i === index);
+    });
   }
 
   function nextSlide() {
-    showSlide((currentIndex + 1) % slides.length);
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
   }
 
-  let sliderInterval = setInterval(nextSlide, 1500); // 1.5s
+  // Initial display
+  showSlide(currentIndex);
+  let slideInterval = setInterval(nextSlide, slideDuration);
 
-  // Pause on hover
-  const slider = document.querySelector(".hero-slider");
-  if (slider) {
-    slider.addEventListener("mouseenter", () => clearInterval(sliderInterval));
-    slider.addEventListener("mouseleave", () => sliderInterval = setInterval(nextSlide, 1500));
-  }
-
-  // Keyboard arrows
-  document.addEventListener("keydown", e => {
-    if (!slides.length) return;
-    if (e.key === "ArrowLeft") {
-      showSlide((currentIndex - 1 + slides.length) % slides.length);
-    } else if (e.key === "ArrowRight") {
-      nextSlide();
-    }
+  // Dot navigation
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      clearInterval(slideInterval);
+      currentIndex = i;
+      showSlide(currentIndex);
+      slideInterval = setInterval(nextSlide, slideDuration);
+    });
   });
 
-  if (slides.length) showSlide(0);
-
-  // Mobile menu toggle (if you add a hamburger)
+  // ======== NAVIGATION ACTIVE LINK ON SCROLL ========
   const navLinks = document.querySelectorAll(".main-navigation a");
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
+
+  function setActiveLink() {
+    let scrollPos = window.scrollY || document.documentElement.scrollTop;
+    navLinks.forEach((link) => {
+      const section = document.querySelector(link.getAttribute("href"));
+      if (
+        section.offsetTop <= scrollPos + 100 &&
+        section.offsetTop + section.offsetHeight > scrollPos + 100
+      ) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", setActiveLink);
+
+  // Smooth scrolling for nav links
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      target.scrollIntoView({ behavior: "smooth" });
     });
   });
 });
