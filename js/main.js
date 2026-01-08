@@ -5,30 +5,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const dots = document.querySelectorAll(".dot");
   let current = 0;
   const intervalTime = 3500; // 3.5 seconds
-  let slideInterval;
+  let slideInterval = setInterval(nextSlide, intervalTime);
 
-  function goToSlide(n) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove("active");
-      dots[i].classList.remove("active");
-      if (i === n) {
-        slide.classList.add("active");
-        dots[i].classList.add("active");
-      }
+  function showSlide(index) {
+    slides.forEach((s, i) => {
+      s.classList.toggle("active", i === index);
+      dots[i].classList.toggle("active", i === index);
     });
-    current = n;
+    current = index;
   }
 
   function nextSlide() {
-    goToSlide((current + 1) % slides.length);
+    showSlide((current + 1) % slides.length);
   }
-
-  slideInterval = setInterval(nextSlide, intervalTime);
 
   dots.forEach((dot, idx) => {
     dot.addEventListener("click", () => {
       clearInterval(slideInterval);
-      goToSlide(idx);
+      showSlide(idx);
       slideInterval = setInterval(nextSlide, intervalTime);
     });
   });
