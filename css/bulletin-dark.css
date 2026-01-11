@@ -1,0 +1,290 @@
+/* =======================================================
+   CVA Bulletin Admin Dashboard - Dark Theme
+   Fully responsive, modular, error-free
+   Includes tables, buttons, modals, alerts, layout
+======================================================= */
+
+/* ======================
+   GLOBAL STYLES
+====================== */
+body.bulletin-dark {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #0f172a;
+    color: #e5e7eb;
+    scroll-behavior: smooth;
+}
+
+/* LINKS */
+a {
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover, a:focus {
+    color: #2563eb;
+    outline: none;
+}
+
+/* ======================
+   HEADER & NAVBAR
+====================== */
+.main-header {
+    background-color: #1e293b;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar .logo a {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #60a5fa;
+}
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+.nav-menu li a {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    background-color: #2563eb;
+    color: #fff;
+}
+
+/* ======================
+   HERO SECTION
+====================== */
+.bulletin-hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+.bulletin-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+}
+.bulletin-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.bulletin-hero h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0;
+}
+.bulletin-hero .subtitle {
+    font-size: 1.2rem;
+    color: #d1d5db;
+    margin-top: 0.5rem;
+}
+
+/* ======================
+   ALERTS
+====================== */
+.admin-alert {
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.admin-alert.success {
+    background-color: #16a34a;
+    color: #f0fdf4;
+}
+.admin-alert.error {
+    background-color: #dc2626;
+    color: #fef2f2;
+}
+
+/* ======================
+   DASHBOARD CONTAINER
+====================== */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* ======================
+   DASHBOARD SECTIONS
+====================== */
+.dashboard-section {
+    margin-bottom: 3rem;
+}
+.dashboard-section h2 {
+    font-size: 1.8rem;
+    color: #60a5fa;
+    margin-bottom: 1rem;
+}
+
+/* ======================
+   TABLES
+====================== */
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e293b;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.dashboard-table th,
+.dashboard-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #334155;
+}
+.dashboard-table th {
+    background-color: #111827;
+    color: #60a5fa;
+}
+.dashboard-table tr:hover {
+    background-color: #1e293bcc;
+}
+.dashboard-table .actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* ======================
+   BUTTONS
+====================== */
+.btn-primary {
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #2563eb;
+    transform: scale(1.05);
+    outline: none;
+}
+.btn-delete {
+    background-color: #dc2626;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.btn-delete:hover, .btn-delete:focus {
+    background-color: #b91c1c;
+    transform: scale(1.05);
+    outline: none;
+}
+.btn-feature {
+    background-color: #facc15;
+    color: #111;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-feature:hover, .btn-feature:focus {
+    background-color: #eab308;
+    outline: none;
+}
+.inline-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* ======================
+   MODAL
+====================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+.modal-content {
+    background-color: #1e293b;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    color: #e5e7eb;
+    position: relative;
+}
+.modal-content h3 {
+    margin-top: 0;
+    color: #60a5fa;
+}
+.modal-content p {
+    margin-top: 1rem;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 900px) {
+    .bulletin-hero h1 {
+        font-size: 2rem;
+    }
+    .bulletin-hero .subtitle {
+        font-size: 1rem;
+    }
+    .dashboard-table th, .dashboard-table td {
+        padding: 8px 10px;
+    }
+    .modal-content {
+        margin: 15% 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .bulletin-hero {
+        height: 50vh;
+    }
+    .dashboard-table th, .dashboard-table td {
+        font-size: 0.9rem;
+    }
+    .inline-form {
+        flex-direction: column;
+    }
+}

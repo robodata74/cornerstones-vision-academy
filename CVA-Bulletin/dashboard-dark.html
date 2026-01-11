@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin Dashboard | CVA</title>
+<meta name="description" content="Cornerstones Vision Academy administration dashboard.">
+<link rel="stylesheet" href="../css/bulletin-dark.css">
+</head>
+<body class="bulletin-dark">
+
+<header class="dashboard-header">
+  <div class="header-container">
+    <a href="../index.html"><img src="../images/cva-logo.png" class="logo-img" alt="CVA Logo"></a>
+    <nav class="main-navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="dashboard-dark.html" class="active">Dashboard</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="dashboard-container">
+
+  <!-- Admin Welcome -->
+  <section class="dashboard-section">
+    <h2>Welcome, Admin</h2>
+    <div class="admin-alert success">You are logged in to the CVA Bulletin Dashboard.</div>
+  </section>
+
+  <!-- Administration Table -->
+  <section class="dashboard-section">
+    <h2>School Administration</h2>
+    <table class="dashboard-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Valentino Achak Deng</td>
+          <td>Principal</td>
+          <td>valentino@cva.edu</td>
+          <td class="actions">
+            <button class="btn-primary">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Jane Doe</td>
+          <td>Head of Academics</td>
+          <td>jane.doe@cva.edu</td>
+          <td class="actions">
+            <button class="btn-primary">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Announcements Section -->
+  <section class="dashboard-section">
+    <h2>Announcements</h2>
+    <button class="btn-feature" onclick="openModal()">Add New Announcement</button>
+
+    <!-- Modal -->
+    <div id="announcementModal" class="modal">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <h3>Add New Announcement</h3>
+        <form>
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Announcement title">
+
+          <label for="content">Content</label>
+          <textarea id="content" name="content" placeholder="Write announcement here"></textarea>
+
+          <button type="submit" class="btn-primary">Save Announcement</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="dashboard-footer">
+  <p>&copy; 2026 Cornerstones Vision Academy</p>
+</footer>
+
+<script>
+  // Modal Functions
+  function openModal() {
+    document.getElementById('announcementModal').style.display = 'block';
+  }
+  function closeModal() {
+    document.getElementById('announcementModal').style.display = 'none';
+  }
+  window.onclick = function(event) {
+    const modal = document.getElementById('announcementModal');
+    if (event.target == modal) modal.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
