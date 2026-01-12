@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 /* ================= RESET ================= */
+=======
+>>>>>>> 08387584310ffba56068583f995187b03b7c54c0
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+<<<<<<< HEAD
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -161,4 +165,145 @@ body {
   .hero-slider { height: 40vh; }
   .card img { height: 140px; }
   .gallery-item { height: 150px; }
+=======
+
+body {
+  font-family: system-ui, sans-serif;
+  color: #1f2a44;
+  background: #f7f7f5;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+}
+
+.main-navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.main-navigation a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1f2a44;
+}
+
+.hero-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.dot.active {
+  background: #c9a23f;
+}
+
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 4rem 2rem;
+}
+
+.section.alt {
+  background: #fff;
+}
+
+.admissions-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.admissions-form input,
+.admissions-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+}
+
+.admissions-form button {
+  background: #1f2a44;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+}
+
+iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+}
+
+.site-footer {
+  background: #1f2a44;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+>>>>>>> 08387584310ffba56068583f995187b03b7c54c0
 }
