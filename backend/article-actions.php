@@ -1,37 +1,27 @@
 <?php
-session_start();
-require_once 'config.php';
+require 'config.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $articleId = $_POST['article_id'] ?? null;
-    $action = $_POST['action'] ?? null;
+$action = $_POST['action'] ?? '';
 
-    if (!$articleId || !$action) {
-        $_SESSION['error'] = "Invalid request.";
-        header("Location: ../dashboard-dark.html");
-        exit;
-    }
-
-    try {
-        if ($action === 'approve') {
-            $stmt = $pdo->prepare("UPDATE articles SET status = 'Approved' WHERE id = :id");
-            $stmt->execute(['id' => $articleId]);
-            $_SESSION['success'] = "Article approved successfully.";
-        } elseif ($action === 'delete') {
-            $stmt = $pdo->prepare("DELETE FROM articles WHERE id = :id");
-            $stmt->execute(['id' => $articleId]);
-            $_SESSION['success'] = "Article deleted successfully.";
-        } elseif ($action === 'feature') {
-            $stmt = $pdo->prepare("UPDATE articles SET featured = 1 WHERE id = :id");
-            $stmt->execute(['id' => $articleId]);
-            $_SESSION['success'] = "Article marked as featured.";
-        } else {
-            $_SESSION['error'] = "Unknown action.";
-        }
-    } catch (PDOException $e) {
-        $_SESSION['error'] = "Database error: " . $e->getMessage();
-    }
-
-    header("Location: ../dashboard-dark.html");
-    exit;
+if ($action === 'add') {
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $stmt = $pdo->prepare("INSERT INTO articles (title, content) VALUES (:title, :content)");
+    $stmt->execute(['title'=>$title, 'content'=>$content]);
+    echo json_encode(['status'=>'success']);
+} elseif ($action === 'delete') {
+    $id = $_POST['id'];
+    $stmt = $pdo->prepare("DELETE FROM articles WHERE id=:id");
+    $stmt->execute(['id'=>$id]);
+    echo json_encode(['status'=>'deleted']);
+} elseif ($action === 'edit') {
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $stmt = $pdo->prepare("UPDATE articles SET title=:title, content=:content WHERE id=:id");
+    $stmt->execute(['id'=>$id,'title'=>$title,'content'=>$content]);
+    echo json_encode(['status'=>'updated']);
+} else {
+    echo json_encode(['status'=>'unknown action']);
 }
+?>

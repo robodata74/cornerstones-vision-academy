@@ -2,25 +2,14 @@
 session_start();
 require_once 'config.php';
 
-header('Content-Type: application/json');
-
-$articleId = $_GET['id'] ?? null;
-
-if (!$articleId || !is_numeric($articleId)) {
-    echo json_encode(['error' => 'Invalid article ID']);
+// Only admin/chairman can view
+if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], ['admin', 'chairman'])) {
+    http_response_code(403);
     exit;
 }
 
-try {
-    $stmt = $pdo->prepare("SELECT title, content FROM articles WHERE id = :id LIMIT 1");
-    $stmt->execute(['id' => $articleId]);
-    $article = $stmt->fetch(PDO::FETCH_ASSOC);
+$stmt = $pdo->query("SELECT * FROM announcements ORDER BY created_at DESC");
+$announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($article) {
-        echo json_encode($article);
-    } else {
-        echo json_encode(['error' => 'Article not found']);
-    }
-} catch (PDOException $e) {
-    echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
-}
+echo json_encode($announcements);
+?>
